@@ -87,6 +87,26 @@ local plugins = {
   ft = {"go", 'gomod'},
   build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
   },
+  {
+    "Dhanus3133/LeetBuddy.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      require("leetbuddy").setup {
+        domain = "com",
+        language = "go",
+      }
+    end,
+    keys = {
+      { "<leader>lq", "<cmd>LBQuestions<cr>", desc = "List Questions" },
+      { "<leader>ll", "<cmd>LBQuestion<cr>", desc = "View Question" },
+      { "<leader>lr", "<cmd>LBReset<cr>", desc = "Reset Code" },
+      { "<leader>lt", "<cmd>LBTest<cr>", desc = "Run Code" },
+      { "<leader>ls", "<cmd>LBSubmit<cr>", desc = "Submit Code" },
+    },
+  },
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
