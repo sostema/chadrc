@@ -44,8 +44,9 @@ M.mason = {
     "gopls",
 
     -- python
-    "ruff-lsp",
     "pyright",
+    "ruff",
+    "mypy",
     "black",
   },
 }

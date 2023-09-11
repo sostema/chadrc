@@ -14,6 +14,9 @@ local sources = {
   -- cpp
   b.formatting.clang_format,
 
+  -- python
+  b.diagnostics.mypy,
+  b.diagnostics.ruff,
   b.formatting.black,
 }
 
