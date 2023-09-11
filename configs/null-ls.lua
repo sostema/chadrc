@@ -18,6 +18,9 @@ local sources = {
   b.diagnostics.mypy,
   b.diagnostics.ruff,
   b.formatting.black,
+
+  -- bash
+  b.formatting.beautysh,
 }
 
 null_ls.setup {
