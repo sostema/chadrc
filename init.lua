@@ -6,6 +6,8 @@
 --   command = "tabdo wincmd =",
 -- })
 --
+local g = vim.g
+
 local format_sync_grp = vim.api.nvim_create_augroup("GoImport", {})
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.go",
@@ -14,3 +16,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
   group = format_sync_grp,
 })
+-- tmux-navigator
+g.tmux_navigator_disable_when_zoomed = 1
+g.tmux_navigator_preserve_zoom = 1
+g.tmux_navigator_save_on_switch = 2
+
