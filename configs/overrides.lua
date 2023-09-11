@@ -67,4 +67,10 @@ M.nvimtree = {
   },
 }
 
+M.telescope = {
+  defaults = {
+    prompt_prefix = "   ",
+  },
+}
+
 return M
