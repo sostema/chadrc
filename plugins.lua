@@ -57,6 +57,11 @@ local plugins = {
   },
 
   {
+    "jghauser/mkdir.nvim",
+    event = "BufWritePre",
+  },
+
+  {
     "kdheepak/lazygit.nvim",
     dependencies = {
       "nvim-telescope/telescope.nvim",
