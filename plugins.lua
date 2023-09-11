@@ -25,6 +25,9 @@ local plugins = {
   -- override plugin configs
   {
     "williamboman/mason.nvim",
+    dependencies = {
+      "jay-babu/mason-nvim-dap.nvim",
+    },
     opts = overrides.mason,
   },
   {
@@ -59,6 +62,15 @@ local plugins = {
   {
     "jghauser/mkdir.nvim",
     event = "BufWritePre",
+  },
+
+  {
+    "mfussenegger/nvim-dap-python",
+    ft = "python",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "rcarriga/nvim-dap-ui",
+    },
   },
 
   {
