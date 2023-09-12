@@ -14,6 +14,7 @@ M.treesitter = {
     "markdown_inline",
     "python",
     "go",
+    "rust",
     "bash",
     "make",
     "sql",

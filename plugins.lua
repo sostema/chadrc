@@ -146,6 +146,42 @@ local plugins = {
   --   "mg979/vim-visual-multi",
   --   lazy = false,
   -- }
+
+  -- rust
+
+  {
+    "rust-lang/rust.vim",
+    ft = "rust",
+    init = function()
+      vim.g.rustfmt_autosave = 1
+    end,
+  },
+
+  {
+    "saecki/crates.nvim",
+    tag = "v0.3.0",
+    event = { "BufRead Cargo.toml" },
+    ft = { "rust", "toml" },
+    dependencies = { "nvim-lua/plenary.nvim", "hrsh7th/nvim-cmp" },
+    config = function(_, opts)
+      local crates = require "crates"
+      crates.setup(opts)
+      crates.show()
+    end,
+  },
+
+  {
+    "simrat39/rust-tools.nvim",
+    dependencies = "neovim/nvim-lspconfig",
+    ft = "rust",
+    opts = function()
+      require "custom.configs.rust-tools"
+    end,
+    config = function(_, opts)
+      require("rust-tools").setup(opts)
+    end,
+  },
+
 }
 
 return plugins
