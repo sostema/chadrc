@@ -20,4 +20,3 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 g.tmux_navigator_disable_when_zoomed = 1
 g.tmux_navigator_preserve_zoom = 1
 g.tmux_navigator_save_on_switch = 2
-
