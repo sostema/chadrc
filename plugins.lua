@@ -122,7 +122,7 @@ local plugins = {
     config = function()
       require("leetbuddy").setup {
         domain = "com",
-        language = "go",
+        language = "rust",
       }
     end,
     keys = {
