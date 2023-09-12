@@ -126,11 +126,11 @@ local plugins = {
       }
     end,
     keys = {
-      { "<leader>lq", "<cmd>LBQuestions<cr>", desc = "List Questions" },
-      { "<leader>ll", "<cmd>LBQuestion<cr>", desc = "View Question" },
-      { "<leader>lr", "<cmd>LBReset<cr>", desc = "Reset Code" },
-      { "<leader>lt", "<cmd>LBTest<cr>", desc = "Run Code" },
-      { "<leader>ls", "<cmd>LBSubmit<cr>", desc = "Submit Code" },
+      { "<leader>leq", "<cmd>LBQuestions<CR>", desc = "List Questions" },
+      { "<leader>lel", "<cmd>LBQuestion<CR>", desc = "View Question" },
+      { "<leader>ler", "<cmd>LBReset<CR>", desc = "Reset Code" },
+      { "<leader>let", "<cmd>LBTest<CR>", desc = "Run Code" },
+      { "<leader>les", "<cmd>LBSubmit<CR>", desc = "Submit Code" },
     },
   },
   -- To make a plugin not be loaded
