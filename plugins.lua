@@ -4,7 +4,6 @@ local overrides = require "custom.configs.overrides"
 local plugins = {
 
   -- Override plugin definition options
-
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -30,6 +29,7 @@ local plugins = {
     },
     opts = overrides.mason,
   },
+
   {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
@@ -46,6 +46,8 @@ local plugins = {
   },
 
   -- Install a plugin
+
+  -- General
   {
     "max397574/better-escape.nvim",
     event = "InsertEnter",
@@ -65,12 +67,12 @@ local plugins = {
   },
 
   {
-    "mfussenegger/nvim-dap-python",
-    ft = "python",
-    dependencies = {
-      "mfussenegger/nvim-dap",
-      "rcarriga/nvim-dap-ui",
-    },
+    "hrsh7th/nvim-cmp",
+    opts = function()
+      local M = require "plugins.configs.cmp"
+      table.insert(M.sources, { name = "crates" })
+      return M
+    end,
   },
 
   {
@@ -99,20 +101,7 @@ local plugins = {
       { "<leader>cp", "<cmd>Copilot<CR>", desc = "Copilot" },
     },
   },
-  {
-    "ray-x/go.nvim",
-    dependencies = { -- optional packages
-      "ray-x/guihua.lua",
-      "neovim/nvim-lspconfig",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    config = function()
-      require("go").setup()
-    end,
-    event = { "CmdlineEnter" },
-    ft = { "go", "gomod" },
-    build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
-  },
+
   {
     "Dhanus3133/LeetBuddy.nvim",
     dependencies = {
@@ -133,19 +122,36 @@ local plugins = {
       { "<leader>les", "<cmd>LBSubmit<CR>", desc = "Submit Code" },
     },
   },
-  -- To make a plugin not be loaded
+
   -- {
-  --   "NvChad/nvim-colorizer.lua",
-  --   enabled = false
+  --   "wfxr/minimap.vim",
+  --   build = "cargo install --locked code-minimap",
+  --   cmd = { "Minimap", "MinimapClose", "MinimapToggle", "MinimapRefresh", "MinimapUpdateHighlight" },
+  --   keys = {
+  --     { "<leader>mm", "<cmd>MinimapToggle<CR>", desc = "Toggle Minimap" },
+  --   },
+  --   init = function()
+  --     vim.g.minimap_width = 5
+  --     vim.g.minimap_left = 0
+  --     vim.g.minimap_block_filetypes = { "fugitive", "nvim-tree", "tagbar", "fzf", "telescope", "NvimTree" }
+  --     vim.g.minimap_block_buftypes = { "nofile", "nowrite", "quickfix", "terminal", "prompt", "NvimTree" }
+  --     vim.g.minimap_close_filetypes = { "startify", "netrw", "vim-plug", "NvimTree" }
+  --     vim.g.minimap_highlight_range = 1
+  --     vim.g.minimap_highlight_search = 1
+  --     vim.g.minimap_git_colors = 1
+  --   end,
   -- },
 
-  -- All NvChad plugins are lazy-loaded by default
-  -- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`
-  -- If you want a plugin to load on startup, add `lazy = false` to a plugin spec, for example
-  -- {
-  --   "mg979/vim-visual-multi",
-  --   lazy = false,
-  -- }
+  -- python
+
+  {
+    "mfussenegger/nvim-dap-python",
+    ft = { "py", "python" },
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "rcarriga/nvim-dap-ui",
+    },
+  },
 
   -- rust
 
@@ -182,6 +188,21 @@ local plugins = {
     end,
   },
 
+  -- go
+
+  {
+    "ray-x/go.nvim",
+    dependencies = { -- optional packages
+      "ray-x/guihua.lua",
+      "neovim/nvim-lspconfig",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("go").setup()
+    end,
+    ft = { "go", "gomod" },
+    build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
+  },
 }
 
 return plugins
