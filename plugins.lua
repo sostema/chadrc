@@ -57,11 +57,6 @@ local plugins = {
   },
 
   {
-    "christoomey/vim-tmux-navigator",
-    lazy = false,
-  },
-
-  {
     "jghauser/mkdir.nvim",
     event = "BufWritePre",
   },

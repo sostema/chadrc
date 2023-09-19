@@ -26,15 +26,6 @@ M.dap_python = {
   },
 }
 
-M.vim_tmux_navigator = {
-  n = {
-    ["<C-h"] = { "<cmd> TmuxNavigateLeft<CR>" },
-    ["<C-l"] = { "<cmd> TmuxNavigateRight<CR>" },
-    ["<C-j"] = { "<cmd> TmuxNavigateDown<CR>" },
-    ["<C-k"] = { "<cmd> TmuxNavigateUp<CR>" },
-  },
-}
-
 -- more keybinds!
 
 return M
