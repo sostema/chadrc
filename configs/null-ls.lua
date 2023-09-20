@@ -20,6 +20,9 @@ local sources = {
 
   -- bash
   b.formatting.beautysh,
+
+  -- toml
+  b.formatting.taplo,
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

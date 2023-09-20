@@ -51,6 +51,9 @@ M.mason = {
     "pyright",
     "ruff",
     "black",
+
+    -- toml
+    "taplo",
   },
 }
 
