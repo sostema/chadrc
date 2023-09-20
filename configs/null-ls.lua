@@ -15,7 +15,6 @@ local sources = {
   b.formatting.clang_format,
 
   -- python
-  b.diagnostics.mypy,
   b.diagnostics.ruff,
   b.formatting.black,
 
